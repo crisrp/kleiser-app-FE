@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 //get elements
-
+document.getElementById('generated-phrases');
 
 var gobutton = document.getElementById('show-phrases');
 
