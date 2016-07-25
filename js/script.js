@@ -1,45 +1,70 @@
 document.addEventListener('DOMContentLoaded', function(){
-
-
   console.log('kleiser app js FE file loaded...');
+  //get elements
+
+  var resultBox = document.querySelector('.wrap');
+  var gobutton = document.getElementById('go-button');
+  var phraseContainer = document.querySelector('.task');
+  var firstWordDefinition = document.getElementById('defineWord1');
+  var secondWordDefinition = document.getElementById('defineWord2');
+  var detailsContainer = document.querySelector('.details__inner');
+  resultBox.style.visibility = 'hidden';
+  phraseContainer.style.visibility = 'hidden';
+
+  var url = 'http://localhost:3000';
+
+  var entryIdArr = [];
+
+  gobutton.addEventListener('click', function (){
+    resultBox.style.visibility = 'hidden';
+    phraseContainer.style.visibility = 'hidden';
+    detailsContainer.innerHTML = "";
+    $.ajax({
+      url: url + '/usefulphrases',
+      dataType: 'json'
+    }).done(function(response) {
+      var phrase = document.getElementById('phrase-text');
+      console.log(response);
+      phrase.innerHTML = response[0].phrase;
+      resultBox.style.visibility = 'visible';
+      phraseContainer.style.visibility = 'visible';
+
+      var phraseText = response[0].phrase;
+      var words = phraseText.split(" ");
+
+      for (var word = 0; word < 2; word++){
+        var data = words[word];
+        console.log(words);
+        $.ajax({
+          url: url+ '/usefulphrases/wordgetid',
+          processData: false,
+          contentType: 'text/plain',
+          data: data,
+          method: 'POST',
+        }).done(function(response) {
+            var returnedObject = JSON.parse(response);
+            var entryId = returnedObject.results[0].entryId;
+            console.log(entryId);
+            var data = entryId;
+            $.ajax({
+              url: url+'/usefulphrases/wordgetdef',
+              processData:false,
+              contentType:'text/plain',
+              data: data,
+              method: 'POST'
+            }).done(function(response){
+              var returnedObject = JSON.parse(response);
+              console.log(returnedObject);
+
+              var htmlContent = returnedObject.entryContent;
+              var definition = document.createElement('p');
+              definition.innerHTML = htmlContent;
+              detailsContainer.appendChild(definition);
+            });
+        });
+      }; // for loop
+    });
+  }); // close show phrases listener
 
 
-//get elements
-document.getElementById('generated-phrases');
-
-var gobutton = document.getElementById('show-phrases');
-
-var url = 'http://localhost:3000';
-
-gobutton.addEventListener('click', function (){
-  $.ajax({
-    url: url + '/usefulphrases',
-    dataType: 'json'
-  }).done(function(response) {
-    document.createElement('p')
-    console.log(response);
-  });
-});
-
-/************************************
-get random id for phrase collection
-Generate a random number between 0 and limit
-presently 100 useful phrases available
-**************************************/
-
-function randomRecord(documentCount, numResults) {
-  //random number between 0 - 64
-  var recIdArr = [];
-  for (var i = 0; i < numResults; i++){
-    var recId = Math.floor(Math.random() * (documentCount - 0));
-    recIdArr.push(recId);
-  }
-  console.log(recIdArr);
-  return recIdArr;
-};
-
-//   console.log(clickDefine[0]);
-// var definitionFirstWord = document.getElementById('p1d1');
-// var definitionSecondWord = document.getElementById('p1d2');
-// clickDefine.addEventListener(
-});
+}); // DOM listener

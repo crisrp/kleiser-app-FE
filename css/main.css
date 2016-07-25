@@ -1,0 +1,91 @@
+body {
+  width: 60%;
+  min-width: 300px;
+  height: 80vh;
+  margin: 10vh auto 0;
+  background: -webkit-linear-gradient(right, #41ffdd, #3bacdd);
+  background: linear-gradient(to left, #41ffdd, #3bacdd);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #282828;
+}
+
+#header, #about-book {
+  color: white;
+  text-align: center;
+}
+#go-button {
+  color: #282828;
+  background-color: white;
+  border: 10px solid white;
+  border-radius: 10px;
+
+
+}
+
+.task {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-perspective: 800px;
+          perspective: 800px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.abstract,
+.details {
+  width: 100%;
+  padding: 15px 30px;
+  position: relative;
+  background: white;
+  font-family: 'Oxygen', sans-serif;
+}
+.task:hover .abstract, .task:hover
+.details {
+  background: #fafafa;
+}
+
+.abstract {
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+}
+
+.details {
+  max-height: 0;
+  padding: 0;
+  overflow: hidden;
+  visibility: hidden;
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: .3s transform ease;
+  transition: .3s transform ease;
+}
+.details:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: grey;
+}
+.task:hover .details {
+  max-height: none;
+  overflow: visible;
+  visibility: visible;
+  -webkit-transform: rotateX(0deg);
+          transform: rotateX(0deg);
+}
+
+#first-definition-container, #second-definition-container {
+  display: flex;
+  flex-direction: row;
+}
+.details__inner {
+  padding: 15px 30px;
+}

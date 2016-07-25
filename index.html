@@ -2,74 +2,44 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Kleiser - Fifteen Thousand Useful Phrases</title>
-
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="main.css" media="screen" title="no title" charset="utf-8">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,700|Lato:400,400italic,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/normalize.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="css/main.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
+
     <a href="about.html">About</a>
+
     <div id = 'header'>
-      <h1>Kleiser - Fifteen Thousand Useful Phrases</h1>
-      <p>Kleiser's book  Fifteen Thousand Useful Phrases is a practical handbook published in 1910.</p>
-      <p> Let's get some phrases and improve our vocabulary</p>
+      <h1>Fifteen Thousand Useful Phrases</h1>
+      <h3> by Grenville Kleiser (1910)</h3>
+      <p>Fifteen Thousand Useful Phrases is a practical handbook published in 1910.</p>
+      <button id="go-button" type="button" class="btn btn-primary">SHOW ME A USEFUL PHRASE</button>
     </div>
 
-    <div class = "dropdown">
-      <button type="button" data-toggle="dropdown"
-        class = "btn btn-info dropdown-toggle">Choose Section
-        <span class="caret"></span>
-      <ul class = "dropdown-menu">
-        <li><a href="#" id='select-section'>Useful Phrases</a></li>
-        <li><a href="#" id='select-section'>Conversational Phrases (Coming Soon)</a></li>
-      </ul>
-    </div>
 
-    <button id="show-phrases" type="button" class="btn btn-primary">Go!</button>
 
-    <!--************************************************************
-    Phrases are listed below. They are randomly generated from phrase values in database.
-    It is made of two parts (PHRASE & FIRST WORD DEFINITION | SECOND WORD DEFINITION)
-    Each phrase is a a 2 word combination
+    <div class="wrap">
 
-    The phrase should be styled in 18 pt font
-    definitions 14pt font
-
-    Definitions (in form of synonyms) are retreived from external API wordsAPI
-    They are hidden by default and appear on hover of the phrase
-    *************************************************************-->
-
-    <div id = "generated-phrases">
-      
-    </div>
-
-    <!--************************************************************
-    The input field is a paragraph maximum 250 characters
-    the user can use it to practice newly learned phrases in their own
-    constructed sentences
-    *************************************************************-->
-    <div id = 'input-text-container'>
-      <div class="input-group" id="speak-button" >
-        <input type="text" class="form-control" placeholder="Practice your phrases by typing your text here." aria-describedby="basic-addon2">
-        <span class="input-group-addon" id="basic-addon2"><span class = "glyphicon glyphicon-volume-up"></span>SPEAK</span>
+      <h1 id='phrase1'></h1>
+      <div class="task">
+        <div class="abstract">
+          <h1 id='phrase-text'>abstemious diet</h1>
+          <h5> * hover to show this phrase defined </h5>
+        </div>
+        <div class="details">
+          <div class="details__inner">
+            <!-- <div id='first-definition-container'><p id = 'defineWord1'></p></div>
+            <div id='second-definition-container'> <p id = 'defineWord2'></p></div> -->
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!-- <script src="js/bootstrap.min.js"></script> -->
+
     <script type="text/javascript" src ="js/script.js"></script>
   </body>
 </html>
