@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function(){
   resultBox.style.visibility = 'hidden';
   phraseContainer.style.visibility = 'hidden';
 
+  // var url = 'https://infinite-harbor-70858.herokuapp.com';
   var url = 'http://localhost:3000';
 
   var entryIdArr = [];
@@ -23,18 +24,20 @@ document.addEventListener('DOMContentLoaded', function(){
       url: url + '/usefulphrases',
       dataType: 'json'
     }).done(function(response) {
-      var phrase = document.getElementById('phrase-text');
       console.log(response);
+
+      var phrase = document.getElementById('phrase-text');
       phrase.innerHTML = response[0].phrase;
       resultBox.style.visibility = 'visible';
       phraseContainer.style.visibility = 'visible';
 
       var phraseText = response[0].phrase;
       var words = phraseText.split(" ");
+      console.log(words);
 
-      for (var word = 0; word < 2; word++){
-        var data = words[word];
-        console.log(words);
+      /* CALL TO API FOR EACH WORD IN THE PHRASE */
+      for (var i= 0; i < 2; i++){
+        var data = words[i];
         $.ajax({
           url: url+ '/usefulphrases/wordgetid',
           processData: false,
@@ -55,7 +58,6 @@ document.addEventListener('DOMContentLoaded', function(){
             }).done(function(response){
               var returnedObject = JSON.parse(response);
               console.log(returnedObject);
-
               var htmlContent = returnedObject.entryContent;
               var definition = document.createElement('p');
               definition.innerHTML = htmlContent;
