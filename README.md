@@ -9,8 +9,8 @@
  The phrases currently appear in isolation without supporting definitions. This app is intended to supplement these useful phrases with definitions / pronunciation / usage of these words individually. It is up to the learner to decide how to use the phrase based on the entries supplied by the Cambridge British Advanced Learner's dictionary. 
 
 ## Unresolved problems
-- presently the mongodb only contains the first 100 useful phrases of section 1 in the book.
-- the call to the API with each individual word happens asynchronously. At times the first response is from the second word in the phrase, causing the definitions to appear out of order, i.e. the first word's definition appears after the second word's defintion. This depends on the speed of the response from the server, as some words have lengthier defintions/alternate definitions/more or less usage examples.
+- Presently, the mongodb only contains the first 100 useful phrases of section 1 in the book.
+- The call to the API with each individual word happens asynchronously. At times the first response is from the second word in the phrase, causing the definitions to appear out of order, i.e. the first word's definition appears after the second word's defintion. This depends on the speed of the response from the server, as some words have lengthier definitions/alternate definitions/more or less usage examples.
 
 ##Technology used
 
