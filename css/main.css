@@ -1,5 +1,5 @@
 body {
-  width: 60%;
+  width: 80%;
   min-width: 300px;
   height: 80vh;
   margin: 10vh auto 0;
@@ -8,20 +8,25 @@ body {
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #282828;
 }
+.hidden {
+  display:none;
+}
 
 #header, #about-book {
   color: white;
   text-align: center;
+  font-family: 'Open Sans', sans-serif;
 }
-#go-button {
-  color: #282828;
-  background-color: white;
-  border: 10px solid white;
-  border-radius: 10px;
-
-
+#start-button-grp {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: 'Open Sans', sans-serif;
 }
 
+#see-saved-button, #go-button {
+  margin: 5px;
+}
 .task {
   position: relative;
   overflow: hidden;
@@ -82,10 +87,6 @@ body {
           transform: rotateX(0deg);
 }
 
-#first-definition-container, #second-definition-container {
-  display: flex;
-  flex-direction: row;
-}
 .details__inner {
   padding: 15px 30px;
 }

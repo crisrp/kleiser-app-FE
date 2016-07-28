@@ -4,22 +4,17 @@ document.addEventListener('DOMContentLoaded', function(){
 
   var resultBox = document.querySelector('.wrap');
   var gobutton = document.getElementById('go-button');
+  var showSavedButton = document.getElementById('see-saved-button');
   var phraseContainer = document.querySelector('.task');
-  var firstWordDefinition = document.getElementById('defineWord1');
-  var secondWordDefinition = document.getElementById('defineWord2');
   var detailsContainer = document.querySelector('.details__inner');
-  resultBox.style.visibility = 'hidden';
-  phraseContainer.style.visibility = 'hidden';
+  var saveButton = document.getElementById('save-button');
+
 
   // var url = 'https://infinite-harbor-70858.herokuapp.com';
   var url = 'http://localhost:3000';
 
-  var entryIdArr = [];
-
   gobutton.addEventListener('click', function (){
-    resultBox.style.visibility = 'hidden';
-    phraseContainer.style.visibility = 'hidden';
-    detailsContainer.innerHTML = "";
+    document.querySelector('.wrap').classList.remove('hidden');
     $.ajax({
       url: url + '/usefulphrases',
       dataType: 'json'
@@ -28,8 +23,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
       var phrase = document.getElementById('phrase-text');
       phrase.innerHTML = response[0].phrase;
-      resultBox.style.visibility = 'visible';
-      phraseContainer.style.visibility = 'visible';
 
       var phraseText = response[0].phrase;
       var words = phraseText.split(" ");
@@ -67,6 +60,45 @@ document.addEventListener('DOMContentLoaded', function(){
       }; // for loop
     });
   }); // close show phrases listener
+
+  // showSavedButton.addEventListener('click', function(){
+  //   document.querySelector('.wrap').classList.add('hidden');
+  //   $.ajax({
+  //     url: url + '/usefulphrases/saved',
+  //     dataType: 'json',
+  //     method: 'GET'
+  //   }).done(function(response){
+  //     if (response.length) {
+  //       var savedPhraseContainer = document.createElement('div');
+  //       var phrase = document.createElement('h2');
+  //       phrase.innerHTML = "Looks like you've saved some phrases already...";
+  //       savedPhraseContainer.appendChild(phrase);
+  //       document.body.appendChild(savedPhraseContainer)
+  //     } else {
+  //       var savedPhraseContainer = document.createElement('div');
+  //       var phrase = document.createElement('h2');
+  //       phrase.innerHTML = "You haven't saved any phrases yet...";
+  //       savedPhraseContainer.appendChild(phrase);
+  //       document.body.appendChild(savedPhraseContainer);
+  //     }
+  //   })
+  // });
+
+  saveButton.addEventListener('click', function(event){
+    var phrase = document.getElementById('phrase-text').innerHTML;
+    var data = {phrase: phrase};
+    data = JSON.stringify(data);
+    console.log
+    $.ajax({
+      url: url + '/usefulphrases/new',
+      method: 'POST',
+      data: data,
+      dataType: 'json'
+    }).done(function(response){
+      console.log("response: "+ response);
+      alert("You've saved the phrase");
+    });
+  });
 
 
 }); // DOM listener

@@ -4,26 +4,31 @@
     <meta charset="utf-8">
     <link href='https://fonts.googleapis.com/css?family=Oxygen:400,700|Lato:400,400italic,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/normalize.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
-
-    <a href="about.html">About</a>
 
     <div id = 'header'>
       <h1>Fifteen Thousand Useful Phrases</h1>
       <h3> by Grenville Kleiser (1910)</h3>
       <p>Fifteen Thousand Useful Phrases is a practical handbook published in 1910.</p>
-      <button id="go-button" type="button" class="btn btn-primary">SHOW ME A USEFUL PHRASE</button>
+      <div id='start-button-grp'>
+        <button id="go-button" type="button" class="btn btn-warning">
+          <span class= 'glyphicon glyphicon-refresh' aria-hidden="true"></span> Show New Phrase</button>
+        <button id="see-saved-button" type="button" class="btn btn-success">
+          <span class="glyphicon glyphicon-book" aria-hidden="true"></span> View Saved Phrases</button>
+    </div>
     </div>
 
-    <div class="wrap">
-
+    <div class="wrap hidden">
       <h1 id='phrase1'></h1>
       <div class="task">
         <div class="abstract">
           <h1 id='phrase-text'></h1>
-          <h5> * Hover to show this phrase defined </h5>
+          <h5> * Hover to show these words defined </h5>
+          <button id="save-button" type="button" class="btn btn-success">SAVE THIS PHRASE</button>
+
         </div>
         <div class="details">
           <div class="details__inner">
@@ -33,10 +38,7 @@
       </div>
     </div>
 
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
     <script type="text/javascript" src ="js/script.js"></script>
   </body>
 </html>
