@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', function(){
   var saveButton = document.getElementById('save-button');
 
 
-  var url = 'https://infinite-harbor-70858.herokuapp.com';
-  // var url = 'http://localhost:3000';
+  // var url = 'https://infinite-harbor-70858.herokuapp.com';
+  var url = 'http://localhost:3000';
 
   /* get new phrase from usefulphrases db */
   newPhraseButton.addEventListener('click', function (){
