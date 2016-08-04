@@ -43,4 +43,7 @@ A click of the delete button on the listing of saved phrases deletes the selecte
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3130595722bedd738a54e17ebd435e25ebf9d6d2
