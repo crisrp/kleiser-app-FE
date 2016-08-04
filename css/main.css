@@ -5,7 +5,6 @@ body {
   margin: 10vh auto 0;
   background: -webkit-linear-gradient(right, #41ffdd, #3bacdd);
   background: linear-gradient(to left, #41ffdd, #3bacdd);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #282828;
 }
 .hidden {
@@ -15,6 +14,10 @@ body {
 #header, #about-book {
   color: white;
   text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+h2,h3 {
+  color: white;
   font-family: 'Open Sans', sans-serif;
 }
 #start-button-grp {
@@ -27,6 +30,7 @@ body {
 #see-saved-button, #go-button {
   margin: 5px;
 }
+
 .task {
   position: relative;
   overflow: hidden;
